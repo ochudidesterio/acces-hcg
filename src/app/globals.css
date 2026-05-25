@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+@plugin "daisyui" {
+   themes: light --default;
+ }
+
+@tailwind utilities;
+
+
+:root {
+  --g:     #A8843A;
+  --gl:    #C9A96E;
+  --gp:    #F6EDD8;
+  --cream: #FAF7F2;
+  --ink:   #18140E;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html  { scroll-behavior: smooth; }
+body  { background: var(--cream); color: var(--ink); font-family: 'DM Sans', sans-serif; -webkit-font-smoothing: antialiased; }
+
+.f-serif { font-family: 'Playfair Display', Georgia, serif; }
+.f-sans  { font-family: 'DM Sans', sans-serif; }
+.gr      { background: var(--g); }
+
+/* Nav underline */
+.nlink { position: relative; }
+.nlink::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: -4px;
+  height: 1px; background: var(--g);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .35s cubic-bezier(.4,0,.2,1);
+}
+.nlink:hover::after { transform: scaleX(1); }
+
+/* Scroll reveal */
+.sr { opacity: 0; transform: translateY(24px); transition: opacity .75s cubic-bezier(.4,0,.2,1), transform .75s cubic-bezier(.4,0,.2,1); }
+.sr.on { opacity: 1; transform: none; }
+.sr-d1 { transition-delay: .1s; }
+.sr-d2 { transition-delay: .2s; }
+.sr-d3 { transition-delay: .3s; }
+
+/* Hero entrance */
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: none; }
+}
+.hs1 { animation: fadeSlide .9s cubic-bezier(.4,0,.2,1) .1s both; }
+.hs2 { animation: fadeSlide .9s cubic-bezier(.4,0,.2,1) .25s both; }
+.hs3 { animation: fadeSlide .9s cubic-bezier(.4,0,.2,1) .4s both; }
+.hs4 { animation: fadeSlide .9s cubic-bezier(.4,0,.2,1) .55s both; }
+
+/* Scroll drip */
+@keyframes drip {
+  0%   { transform: scaleY(0); transform-origin: top; }
+  50%  { transform: scaleY(1); transform-origin: top; }
+  51%  { transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+.drip { animation: drip 2.2s ease-in-out infinite; }
+
+/* Service card dark flip */
+.svc { transition: background .3s, border-color .3s, transform .35s cubic-bezier(.4,0,.2,1), box-shadow .35s; }
+.svc:hover { background: var(--ink) !important; border-color: var(--ink) !important; transform: translateY(-5px); box-shadow: 0 20px 56px rgba(24,20,14,.16); }
+.svc:hover .svc-num  { color: var(--gl) !important; }
+.svc:hover .svc-h    { color: #fff !important; }
+.svc:hover .svc-p    { color: #a09080 !important; }
+.svc:hover .svc-tag  { background: rgba(200,160,80,.15) !important; border-color: rgba(200,160,80,.3) !important; color: var(--gl) !important; }
+.svc:hover .svc-line { background: var(--gl) !important; }
+
+/* Team card */
+.tc { transition: box-shadow .35s, transform .35s cubic-bezier(.4,0,.2,1); }
+.tc:hover { transform: translateY(-5px); box-shadow: 0 20px 56px rgba(24,20,14,.09); }
+
+/* Input gold focus */
+.gi:focus { border-color: var(--g) !important; outline: none; box-shadow: 0 0 0 3px rgba(168,132,58,.12); }
+
+/* Marquee */
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.mq-track { display: flex; width: max-content; animation: marquee 28s linear infinite; }
+.mq-track:hover { animation-play-state: paused; }
+
+/* ─── Responsive layout overrides ─────────────────────────────────────────── */
+
+/* Tablet: 768px – 1023px */
+@media (max-width: 1023px) {
+  /* Shared inner wrapper padding */
+  .rp-inner { padding-left: 40px !important; padding-right: 40px !important; }
+
+  /* Navbar */
+  .nav-inner { padding-left: 24px !important; padding-right: 24px !important; }
+
+  /* Hero */
+  .hero-wrap  { flex-direction: column !important; min-height: unset !important; }
+  .hero-left  { width: 100% !important; padding: 100px 40px 56px !important; }
+  .hero-right { display: none !important; }
+  .hero-stats { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* About */
+  .about-grid      { grid-template-columns: 1fr !important; }
+  .about-left-col  { padding-right: 0 !important; }
+  .about-right-col { margin-top: 32px; }
+
+  /* Services */
+  .svc-header { flex-direction: column !important; align-items: flex-start !important; }
+  .svc-grid   { grid-template-columns: 1fr !important; }
+  .svc-inside { grid-template-columns: 1fr !important; }
+
+  /* WhyAces */
+  .why-header  { flex-direction: column !important; align-items: flex-start !important; }
+  .why-metrics { grid-template-columns: 1fr 1fr !important; }
+  .why-bottom  { grid-template-columns: 1fr !important; }
+
+  /* Team */
+  .team-header { flex-direction: column !important; align-items: flex-start !important; }
+  .team-cards  { grid-template-columns: 1fr 1fr !important; }
+  .team-cta    { flex-direction: column !important; align-items: flex-start !important; }
+
+  /* Clients */
+  .clients-grid { grid-template-columns: 1fr 1fr !important; }
+
+  /* Contact */
+  .contact-cols      { grid-template-columns: 1fr !important; }
+  .contact-form-grid { grid-template-columns: 1fr !important; }
+
+  /* Footer */
+  .footer-cols { grid-template-columns: 1fr 1fr !important; }
+  .footer-bar  { flex-direction: column !important; align-items: flex-start !important; gap: 8px !important; }
+}
+
+/* Mobile: up to 767px */
+@media (max-width: 767px) {
+  /* Shared inner wrapper padding */
+  .rp-inner { padding-left: 20px !important; padding-right: 20px !important; }
+
+  /* Hero */
+  .hero-left  { padding: 88px 20px 48px !important; }
+  .hero-stats { grid-template-columns: repeat(2, 1fr) !important; gap: 16px !important; }
+
+  /* Sections vertical padding */
+  .rp-section { padding-top: 64px !important; padding-bottom: 64px !important; }
+
+  /* Services header desc */
+  .svc-header-desc { max-width: 100% !important; }
+
+  /* WhyAces metrics single col */
+  .why-metrics { grid-template-columns: 1fr !important; }
+
+  /* Team */
+  .team-cards { grid-template-columns: 1fr !important; }
+  .team-cta   { padding: 32px 24px !important; }
+
+  /* Clients */
+  .clients-grid { grid-template-columns: 1fr 1fr !important; }
+
+  /* Contact */
+  .contact-form-inner { padding: 32px 24px !important; }
+
+  /* Footer */
+  .footer-cols  { grid-template-columns: 1fr !important; }
+  .footer-inner { padding-top: 56px !important; }
+}

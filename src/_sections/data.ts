@@ -12,6 +12,7 @@ export interface StatItem {
 
 export interface TeamMember {
   initials: string;
+  image?: string;
   name: string;
   role: string;
   bio: string;
@@ -22,6 +23,18 @@ export interface ValueItem {
   n: string;
   v: string;
   d: string;
+}
+
+export interface ClientItem {
+  name: string;
+  logo?: string;
+  isPhoto?: boolean; // building photo → fill-cover + dark overlay
+  dark?: boolean;    // logo with built-in dark background → dark card
+}
+
+export interface PartnerItem {
+  name: string;
+  logo?: string;
 }
 
 export const NAV: string[] = [
@@ -62,20 +75,28 @@ export const STATS: StatItem[] = [
   { n: "100%", l: "Tailored Engagements" },
 ];
 
-export const CLIENTS: string[] = [
-  "Blueview Kenya",
-  "Sunciti Resort Sagana",
-  "Upperhill Blueberry",
-  "Kangaroo Hotel Burundi",
-  "Cultiva Farm Restaurant",
-  "Mawimbi Seafood Restaurants",
-  "The Pinnacle Hotel Kigali",
-  "Nair Obi",
+export const CLIENTS: ClientItem[] = [
+  { name: "Blueview Kenya",           logo: "/images/logo_blueview.png" },
+  { name: "Sunciti Resort Sagana",    logo: "/images/logo_sunciti_resort.png", dark: true },
+  { name: "Upperhill Blueberry",      logo: "/images/upperhill_logo.png" },
+  { name: "Kangaroo Hotel Burundi",   logo: "/images/kangaroo_hotel.png", isPhoto: true },
+  { name: "Cultiva Farm Restaurant",  logo: "/images/cultiva_logo.png" },
+  { name: "Bon Hotels",               logo: "/images/bon_hotel_logo.jpeg" },
+  { name: "Le Pristine",              logo: "/images/pristine_logo.jpeg", isPhoto: true },
+  { name: "Mawimbi Seafood Restaurants" },
+];
+
+export const PARTNERS: PartnerItem[] = [
+  { name: "Abacus",            logo: "/images/abacus_logo.png" },
+  { name: "HotelTime Systems", logo: "/images/hoteltime_logo.png" },
+  { name: "Cultiva",           logo: "/images/cultiva_logo.png" },
+  { name: "IATA / UFTAA" },
 ];
 
 export const TEAM: TeamMember[] = [
   {
     initials: "AC",
+    image: "/images/team_anthony_chege.png",
     name: "Anthony Chege",
     role: "Founder & Managing Director",
     bio: "Founding partner since 2017. Specialises in service coaching, market assessment, brand expansion, tourism development and master planning across East Africa.",
@@ -83,6 +104,7 @@ export const TEAM: TeamMember[] = [
   },
   {
     initials: "KO",
+    image: "/images/team_kevin_odongo.jpeg",
     name: "Kevin Odongo",
     role: "HR & Training Consultant",
     bio: "10+ years in hospitality training and mentoring. Expert in team building, curriculum development, HR management and strategic hospitality marketing.",
@@ -90,10 +112,18 @@ export const TEAM: TeamMember[] = [
   },
   {
     initials: "NM",
+    image: "/images/team_nickson_maina.jpeg",
     name: "Nickson Maina",
     role: "Management & Business Development",
     bio: "15+ years across Starbucks International UAE, Java House Africa and regional brands. Specialist in customer service, kitchen management and restaurant operations.",
     exp: ["Starbucks International UAE", "Java House Africa", "Pewi Foods"],
+  },
+  {
+    initials: "EW",
+    name: "Eric Wang'anya",
+    role: "Principal Consultant",
+    bio: "Management and Organisation Development specialist combining lean thinking, project management and financial strategy to drive business process optimisation and sustainable growth.",
+    exp: ["Management & Org Development", "Lean Thinking & Project Mgmt", "Financial Strategy & BPO"],
   },
 ];
 

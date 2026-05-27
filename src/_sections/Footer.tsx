@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { NAV } from "./data";
 import { useBreakpoint } from "./hooks";
 
@@ -40,16 +41,14 @@ export default function Footer() {
 
           {/* Brand column — full width on mobile */}
           <div style={{ gridColumn: isMobile ? "1 / -1" : undefined }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
-              <div style={{ width: 36, height: 36, borderRadius: "50%", border: "1px solid var(--g)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <span className="f-serif font-bold" style={{ fontSize: 14, color: "var(--g)" }}>A</span>
-              </div>
-              <div>
-                <p className="f-sans font-medium uppercase text-white" style={{ fontSize: 11, letterSpacing: "0.22em", lineHeight: 1 }}>ACES HCG</p>
-                <p className="f-sans uppercase" style={{ fontSize: 8.5, letterSpacing: "0.18em", color: "var(--g)", marginTop: 4, lineHeight: 1 }}>
-                  Hotel Consultancy Group
-                </p>
-              </div>
+            <div style={{ marginBottom: 20 }}>
+              <Image
+                src="/images/logo.png"
+                alt="ACES Hotel Consultancy Group"
+                width={120}
+                height={48}
+                style={{ height: 56, width: "auto", objectFit: "contain", filter: "brightness(0) invert(1)" }}
+              />
             </div>
             <p className="f-sans font-light text-stone-500" style={{ fontSize: 14, lineHeight: 1.75, maxWidth: 220 }}>
               Redefining African Hospitality through strategic advisory and transformative partnerships since 2017.

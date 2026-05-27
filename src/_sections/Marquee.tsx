@@ -11,7 +11,7 @@ export default function Marquee() {
               className="f-sans text-[10px] font-medium tracking-[.2em] uppercase whitespace-nowrap"
               style={{ color: "var(--gl)" }}
             >
-              {c}
+              {c.name}
             </span>
             <span className="block w-1 h-1 rounded-full bg-stone-700" />
           </div>

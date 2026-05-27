@@ -30,7 +30,7 @@ export const metadata: Metadata = {
       "Strategic hospitality advisory, operational excellence and brand transformation for hotels, resorts and restaurants across East Africa.",
     images: [
       {
-        url: "/og-image.jpg",   // add a 1200×630 image to /public/og-image.jpg
+        url: "/public/logo.png",   // add a 1200×630 image to /public/og-image.jpg
         width: 1200,
         height: 630,
         alt: "ACES Hotel Consultancy Group",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ACES Hotel Consultancy Group",
     description: "Africa's Premier Hospitality Consultancy",
-    images: ["/og-image.jpg"],
+    images: ["/public/logo.png"],
   },
   robots: {
     index: true,

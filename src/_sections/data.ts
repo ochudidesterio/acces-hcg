@@ -12,7 +12,6 @@ export interface StatItem {
 
 export interface TeamMember {
   initials: string;
-  image?: string;
   name: string;
   role: string;
   bio: string;
@@ -96,7 +95,6 @@ export const PARTNERS: PartnerItem[] = [
 export const TEAM: TeamMember[] = [
   {
     initials: "AC",
-    image: "/images/team_anthony_chege.png",
     name: "Anthony Chege",
     role: "Founder & Managing Director",
     bio: "Founding partner since 2017. Specialises in service coaching, market assessment, brand expansion, tourism development and master planning across East Africa.",
@@ -104,7 +102,6 @@ export const TEAM: TeamMember[] = [
   },
   {
     initials: "KO",
-    image: "/images/team_kevin_odongo.jpeg",
     name: "Kevin Odongo",
     role: "HR & Training Consultant",
     bio: "10+ years in hospitality training and mentoring. Expert in team building, curriculum development, HR management and strategic hospitality marketing.",
@@ -112,7 +109,6 @@ export const TEAM: TeamMember[] = [
   },
   {
     initials: "NM",
-    image: "/images/team_nickson_maina.jpeg",
     name: "Nickson Maina",
     role: "Management & Business Development",
     bio: "15+ years across Starbucks International UAE, Java House Africa and regional brands. Specialist in customer service, kitchen management and restaurant operations.",

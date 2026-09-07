@@ -1,9 +1,8 @@
 "use client";
-import Image from "next/image";
 import { useSR, useBreakpoint } from "./hooks";
 import { TEAM, type TeamMember } from "./data";
 
-function TeamCard({ m, narrow }: { m: TeamMember; narrow: boolean }) {
+function TeamCard({ m }: { m: TeamMember }) {
   const ref = useSR();
   return (
     <div
@@ -13,84 +12,52 @@ function TeamCard({ m, narrow }: { m: TeamMember; narrow: boolean }) {
         background: "white",
         border: "1px solid rgba(168,132,58,.15)",
         overflow: "hidden",
+        display: "flex",
+        flexDirection: "column",
       }}
     >
       <div style={{ height: 2, background: "linear-gradient(90deg,var(--g),var(--gl))" }} />
 
-      <div style={{ display: "flex", flexDirection: narrow ? "column" : "row" }}>
+      <div style={{ padding: "36px 28px 32px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", flex: 1 }}>
 
-        {/* Photo / initials panel */}
+        {/* Initials avatar */}
         <div
           style={{
-            position: "relative",
-            width: narrow ? "100%" : 240,
-            height: narrow ? 220 : "auto",
-            minHeight: narrow ? undefined : 270,
-            flexShrink: 0,
-            background: "#ede8df",
+            width: 88, height: 88, borderRadius: "50%",
+            border: "1.5px solid rgba(168,132,58,.4)", background: "var(--gp)",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            flexShrink: 0, marginBottom: 22,
           }}
         >
-          {m.image ? (
-            <Image
-              src={m.image}
-              alt={m.name}
-              fill
-              style={{ objectFit: "cover", objectPosition: "top center" }}
-              sizes="(max-width: 768px) 100vw, 240px"
-            />
-          ) : (
-            <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <div
-                style={{
-                  width: 80, height: 80, borderRadius: "50%",
-                  border: "1.5px solid rgba(168,132,58,.4)", background: "var(--gp)",
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                }}
-              >
-                <span className="f-serif font-bold" style={{ fontSize: 28, lineHeight: 1, color: "var(--g)" }}>{m.initials}</span>
-              </div>
+          <span className="f-serif font-bold" style={{ fontSize: 30, lineHeight: 1, color: "var(--g)" }}>{m.initials}</span>
+        </div>
+
+        <h3
+          className="f-serif font-bold text-stone-800"
+          style={{ fontSize: 21, lineHeight: 1.2, marginBottom: 6 }}
+        >
+          {m.name}
+        </h3>
+        <p
+          className="f-sans font-medium uppercase"
+          style={{ fontSize: 10, letterSpacing: "0.18em", color: "var(--g)", marginBottom: 16 }}
+        >
+          {m.role}
+        </p>
+        <p
+          className="f-sans font-light text-stone-400"
+          style={{ fontSize: 14, lineHeight: 1.8, marginBottom: 22 }}
+        >
+          {m.bio}
+        </p>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", alignSelf: "flex-start", textAlign: "left", gap: 8, marginTop: "auto" }}>
+          {m.exp.map((e) => (
+            <div key={e} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <span style={{ display: "block", width: 10, height: 1, background: "var(--g)", flexShrink: 0 }} />
+              <span className="f-sans font-light text-stone-400" style={{ fontSize: 11 }}>{e}</span>
             </div>
-          )}
+          ))}
         </div>
-
-        {/* Content */}
-        <div
-          style={{
-            padding: narrow ? "24px 24px 28px" : "32px 44px",
-            flex: 1,
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-          }}
-        >
-          <h3
-            className="f-serif font-bold text-stone-800"
-            style={{ fontSize: narrow ? 20 : 24, lineHeight: 1.2, marginBottom: 6 }}
-          >
-            {m.name}
-          </h3>
-          <p
-            className="f-sans font-medium uppercase"
-            style={{ fontSize: 10, letterSpacing: "0.18em", color: "var(--g)", marginBottom: 16 }}
-          >
-            {m.role}
-          </p>
-          <p
-            className="f-sans font-light text-stone-400"
-            style={{ fontSize: 14, lineHeight: 1.8, marginBottom: 22, maxWidth: 680 }}
-          >
-            {m.bio}
-          </p>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "8px 24px" }}>
-            {m.exp.map((e) => (
-              <div key={e} style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                <span style={{ display: "block", width: 10, height: 1, background: "var(--g)", flexShrink: 0 }} />
-                <span className="f-sans font-light text-stone-400" style={{ fontSize: 11 }}>{e}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
       </div>
     </div>
   );
@@ -136,9 +103,16 @@ export default function Team() {
           </p>
         </div>
 
-        {/* Cards — horizontal stack */}
-        <div style={{ display: "flex", flexDirection: "column", gap: 16, marginBottom: 20 }}>
-          {TEAM.map((m) => <TeamCard key={m.name} m={m} narrow={narrow} />)}
+        {/* Cards — responsive grid */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+            gap: 24,
+            marginBottom: 20,
+          }}
+        >
+          {TEAM.map((m) => <TeamCard key={m.name} m={m} />)}
         </div>
 
         {/* Join the network CTA */}

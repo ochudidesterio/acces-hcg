@@ -115,13 +115,6 @@ export const TEAM: TeamMember[] = [
     bio: "15+ years across Starbucks International UAE, Java House Africa and regional brands. Specialist in customer service, kitchen management and restaurant operations.",
     exp: ["Starbucks International UAE", "Java House Africa", "Pewi Foods"],
   },
-  {
-    initials: "EW",
-    name: "Eric Wang'anya",
-    role: "Principal Consultant",
-    bio: "Management and Organisation Development specialist combining lean thinking, project management and financial strategy to drive business process optimisation and sustainable growth.",
-    exp: ["Management & Org Development", "Lean Thinking & Project Mgmt", "Financial Strategy & BPO"],
-  },
 ];
 
 export const VALUES: ValueItem[] = [

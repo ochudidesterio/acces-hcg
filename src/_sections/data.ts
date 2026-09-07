@@ -16,6 +16,7 @@ export interface TeamMember {
   role: string;
   bio: string;
   exp: string[];
+  
 }
 
 export interface ValueItem {

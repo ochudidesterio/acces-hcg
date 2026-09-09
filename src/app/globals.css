@@ -72,6 +72,11 @@ body  { background: var(--cream); color: var(--ink); font-family: 'DM Sans', san
 .tc { transition: box-shadow .35s, transform .35s cubic-bezier(.4,0,.2,1); }
 .tc:hover { transform: translateY(-5px); box-shadow: 0 20px 56px rgba(24,20,14,.09); }
 
+/* Client card — "Visit Site" hover overlay */
+.cl-card { position: relative; }
+.cl-overlay { opacity: 0; transition: opacity .3s; }
+.cl-card:hover .cl-overlay { opacity: 1; }
+
 /* Input gold focus */
 .gi:focus { border-color: var(--g) !important; outline: none; box-shadow: 0 0 0 3px rgba(168,132,58,.12); }
 

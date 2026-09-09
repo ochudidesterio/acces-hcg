@@ -3,6 +3,49 @@ import Image from "next/image";
 import { useSR, useBreakpoint } from "./hooks";
 import { CLIENTS, PARTNERS, type ClientItem } from "./data";
 
+function ExternalLinkIcon() {
+  return (
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M7 17 17 7M9 7h8v8" />
+    </svg>
+  );
+}
+
+function VisitOverlay({ c, dark }: { c: ClientItem; dark: boolean }) {
+  if (!c.url) return null;
+  return (
+    <>
+      <a
+        href={c.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Visit ${c.name} website`}
+        style={{ position: "absolute", inset: 0, zIndex: 3 }}
+      />
+      <div
+        className="cl-overlay"
+        style={{
+          position: "absolute", inset: 0, zIndex: 2, pointerEvents: "none",
+          display: "flex", alignItems: "center", justifyContent: "center",
+          background: dark ? "rgba(8,6,4,0.72)" : "rgba(255,255,255,0.92)",
+        }}
+      >
+        <span
+          className="f-sans font-medium uppercase"
+          style={{
+            display: "flex", alignItems: "center", gap: 8,
+            fontSize: 11, letterSpacing: "0.14em",
+            color: dark ? "#fff" : "var(--g)",
+          }}
+        >
+          Visit Site
+          <ExternalLinkIcon />
+        </span>
+      </div>
+    </>
+  );
+}
+
 function ClientCard({ c, i }: { c: ClientItem; i: number }) {
   const ref = useSR();
 
@@ -11,7 +54,7 @@ function ClientCard({ c, i }: { c: ClientItem; i: number }) {
     return (
       <div
         ref={ref}
-        className="sr"
+        className="sr cl-card"
         style={{ position: "relative", height: 180, overflow: "hidden" }}
       >
         <Image
@@ -36,6 +79,7 @@ function ClientCard({ c, i }: { c: ClientItem; i: number }) {
             {c.name}
           </span>
         </div>
+        <VisitOverlay c={c} dark />
       </div>
     );
   }
@@ -45,8 +89,9 @@ function ClientCard({ c, i }: { c: ClientItem; i: number }) {
     return (
       <div
         ref={ref}
-        className="sr"
+        className="sr cl-card"
         style={{
+          position: "relative",
           display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
           gap: 14, padding: "24px 20px", height: 180,
           background: "#111008",
@@ -67,6 +112,7 @@ function ClientCard({ c, i }: { c: ClientItem; i: number }) {
         >
           {c.name}
         </span>
+        <VisitOverlay c={c} dark />
       </div>
     );
   }
@@ -77,8 +123,9 @@ function ClientCard({ c, i }: { c: ClientItem; i: number }) {
     return (
       <div
         ref={ref}
-        className="sr"
+        className="sr cl-card"
         style={{
+          position: "relative",
           display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
           gap: 14, padding: "18px 20px", height: 180,
           background: bg,
@@ -99,6 +146,7 @@ function ClientCard({ c, i }: { c: ClientItem; i: number }) {
         >
           {c.name}
         </span>
+        <VisitOverlay c={c} dark={false} />
       </div>
     );
   }

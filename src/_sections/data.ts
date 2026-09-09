@@ -30,6 +30,7 @@ export interface ClientItem {
   logo?: string;
   isPhoto?: boolean; // building photo → fill-cover + dark overlay
   dark?: boolean;    // logo with built-in dark background → dark card
+  url?: string;      // live site — shows a "Visit Site" hover overlay
 }
 
 export interface PartnerItem {
@@ -78,12 +79,12 @@ export const STATS: StatItem[] = [
 export const CLIENTS: ClientItem[] = [
   { name: "Blueview Kenya",           logo: "/images/logo_blueview.png" },
   { name: "Sunciti Resort Sagana",    logo: "/images/logo_sunciti_resort.png", dark: true },
-  { name: "Upperhill Blueberry",      logo: "/images/upperhill_logo.png" },
+  { name: "Upperhill Blueberry",      logo: "/images/upperhill_logo.png", url: "https://upperhill-blueberry.hotels-of-nairobi.com/en/" },
   { name: "Kangaroo Hotel Burundi",   logo: "/images/kangaroo_hotel.png", isPhoto: true },
-  { name: "Cultiva Farm Restaurant",  logo: "/images/cultiva_logo.jpeg" },
-  { name: "Bon Hotels",               logo: "/images/bon_hotel_logo.jpeg" },
+  { name: "Cultiva Farm Restaurant",  logo: "/images/cultiva_logo.jpeg", url: "https://cultivakenya.com/" },
+  { name: "Bon Hotels",               logo: "/images/bon_hotel_logo.jpeg", url: "https://bonhotels.com/" },
   { name: "Le Pristine",              logo: "/images/pristine_logo.jpeg", isPhoto: true },
-  { name: "Mawimbi Seafood Restaurants", logo: "/images/mawimbi_logo.jpeg" },
+  { name: "Mawimbi Seafood Restaurants", logo: "/images/mawimbi_logo.jpeg", url: "https://www.mawimbirestaurant.com/" },
 ];
 
 export const PARTNERS: PartnerItem[] = [

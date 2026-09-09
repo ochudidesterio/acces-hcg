@@ -80,16 +80,16 @@ export const CLIENTS: ClientItem[] = [
   { name: "Sunciti Resort Sagana",    logo: "/images/logo_sunciti_resort.png", dark: true },
   { name: "Upperhill Blueberry",      logo: "/images/upperhill_logo.png" },
   { name: "Kangaroo Hotel Burundi",   logo: "/images/kangaroo_hotel.png", isPhoto: true },
-  { name: "Cultiva Farm Restaurant",  logo: "/images/cultiva_logo.png" },
+  { name: "Cultiva Farm Restaurant",  logo: "/images/cultiva_logo.jpeg" },
   { name: "Bon Hotels",               logo: "/images/bon_hotel_logo.jpeg" },
   { name: "Le Pristine",              logo: "/images/pristine_logo.jpeg", isPhoto: true },
-  { name: "Mawimbi Seafood Restaurants" },
+  { name: "Mawimbi Seafood Restaurants", logo: "/images/mawimbi_logo.jpeg" },
 ];
 
 export const PARTNERS: PartnerItem[] = [
   { name: "Abacus",            logo: "/images/abacus_logo.png" },
   { name: "HotelTime Systems", logo: "/images/hoteltime_logo.png" },
-  { name: "Cultiva",           logo: "/images/cultiva_logo.png" },
+  { name: "Cultiva",           logo: "/images/cultiva_logo.jpeg" },
   { name: "IATA / UFTAA" },
 ];
 

@@ -80,11 +80,11 @@ function ClientCard({ c, i }: { c: ClientItem; i: number }) {
         className="sr"
         style={{
           display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-          gap: 14, padding: "24px 20px", height: 180,
+          gap: 14, padding: "18px 20px", height: 180,
           background: bg,
         }}
       >
-        <div style={{ position: "relative", width: "78%", height: 76 }}>
+        <div style={{ position: "relative", width: "82%", height: 96 }}>
           <Image
             src={c.logo}
             alt={c.name}
